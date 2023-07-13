@@ -1,19 +1,18 @@
-dayPRICES = [17,3,6,9,15,8,6,1,10]
+bubblesort = [4,3,78,2,0,2]
 
-def stock_picker(dayPRICES)
-  resultado = []
-  beneficioMAX = nil
-  dayPRICES.each_with_index do |numero, indiceACTUAL|
-    for index in (indiceACTUAL + 1)..(dayPRICES.length() - 1) do
-      beneficioACTUAL = dayPRICES[index] - numero
-      if beneficioMAX.nil?
-        beneficioMAX = beneficioACTUAL
-        resultado = [indiceACTUAL, index]
-      elsif beneficioACTUAL >= beneficioMAX
-        beneficioMAX = beneficioACTUAL
-        resultado = [indiceACTUAL, index]
+def bubble_sort(bubblesort)
+  bubblesort_largo = bubblesort.size
+  return bubblesort if bubblesort_largo <= 1
+  
+  loop do
+    cambiado = false
+    (bubblesort_largo-1).times do |indiceACTUAL|
+      if bubblesort[indiceACTUAL] > bubblesort[indiceACTUAL+1]
+        bubblesort[indiceACTUAL], bubblesort[indiceACTUAL+1] = bubblesort[indiceACTUAL+1], bubblesort[indiceACTUAL]
+        cambiado = true
       end
     end
-  end 
-  return resultado
+    break if not cambiado
+  end
+  bubblesort  
 end
